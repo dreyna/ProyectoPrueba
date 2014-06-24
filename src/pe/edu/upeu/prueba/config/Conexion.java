@@ -15,9 +15,10 @@ import java.sql.SQLException;
  * @author admin-harold.rojas
  */
 public class Conexion {
-    private static String url ="jdbc:mysql://locahost/bd_visitas";
-    private static String usuario ="root";
-    private static String clave ="root";
+    private static final String url ="jdbc:mysql://localhost/bd_visitas";
+    
+    private static final String usuario ="root";
+    private static final String clave ="root";
     private static Connection conex=null;   
     public static Connection getConexion(){
         try {

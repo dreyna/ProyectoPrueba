@@ -18,7 +18,7 @@ import pe.edu.upeu.prueba.modelo.Tipo_Iglesia;
  *
  * @author admin-harold.rojas
  */
-public class PrincipalForm extends javax.swing.JFrame {
+public final class PrincipalForm extends javax.swing.JFrame {
     DefaultComboBoxModel<Object> combodistrito = new DefaultComboBoxModel();
     DefaultComboBoxModel<Object> combotipoiglesia = new DefaultComboBoxModel();
     DistritoDAO dAO = new DistritoDAO();
@@ -32,9 +32,12 @@ public class PrincipalForm extends javax.swing.JFrame {
     public PrincipalForm() {
         initComponents();
         setLocationRelativeTo(null);
+        cargarDistrito();
     }
 void cargarDistrito(){
-    
+    lista1 = dAO.listarDistrito();
+    combodistrito.addElement("Seleccionar Distrito");
+    cbodistrito.setModel(combodistrito);
 }
 void cargarTipoIglesia(){
 }

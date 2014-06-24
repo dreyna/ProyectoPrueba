@@ -19,7 +19,7 @@ import pe.edu.upeu.prueba.modelo.Distrito;
  * @author admin-harold.rojas
  */
 public class DistritoDAO {
-    private ArrayList<Distrito> lista = new ArrayList();
+    private final ArrayList<Distrito> lista = new ArrayList();
     Distrito d = new Distrito();
     private String sql;
     private Statement st;
