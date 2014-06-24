@@ -27,7 +27,7 @@ public class Tipo_IglesiaDAO {
     private Connection cx;
     private ResultSet rs;
     public ArrayList<Tipo_Iglesia> listarTipo_Iglesia(){
-    sql = "SELECT *FROM Tipo_Iglesia";
+    sql = "SELECT *FROM Tipo_Iglesia";//consulta a la tabla tipo iglesia
         try {
             cx = Conexion.getConexion();
             st = cx.createStatement();
