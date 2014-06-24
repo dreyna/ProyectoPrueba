@@ -20,7 +20,7 @@ import pe.edu.upeu.prueba.modelo.Tipo_Iglesia;
  * @author admin-harold.rojas
  */
 public class Tipo_IglesiaDAO {
-    private ArrayList<Tipo_Iglesia> lista = new ArrayList();
+    private final ArrayList<Tipo_Iglesia> lista = new ArrayList();
     Distrito d = new Distrito();
     private String sql;
     private Statement st;
@@ -38,5 +38,19 @@ public class Tipo_IglesiaDAO {
         } catch (SQLException e) {            
         }        
     return lista;
+    }
+     public int idTipoIglesia(String tipo_i){
+    int id = 0;
+        sql = "select *from tipo_iglesia where tipo_iglesia="+tipo_i;
+        try{
+        cx = Conexion.getConexion();
+        st = cx.createStatement();
+        rs = st.executeQuery(sql);
+        while(rs.next()){
+            id = rs.getInt("idtipo_iglesia");
+        }
+        }catch(SQLException ex){        
+        }
+    return id;
     }
 }

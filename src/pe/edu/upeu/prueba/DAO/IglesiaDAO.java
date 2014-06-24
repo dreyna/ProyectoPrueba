@@ -6,10 +6,29 @@
 
 package pe.edu.upeu.prueba.DAO;
 
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.Statement;
+import pe.edu.upeu.prueba.config.Conexion;
+
 /**
  *
  * @author admin-harold.rojas
  */
 public class IglesiaDAO {
-    
+    private String sql;
+    private Statement st;
+    private Connection cx;
+    private ResultSet rs;
+    int op;
+    public int RegistrarIglesia(int idd, int idt, String igle, String est){
+        try {
+            sql = "INSERT INTO iglesia VALUES(null,'"+idd+"','"+idt+"','"+igle+"','"+est+")";
+            cx = Conexion.getConexion();
+            st = cx.createStatement();
+            op = st.executeUpdate(sql);
+        } catch (Exception e) {
+        }   
+    return op;
+    }
 }

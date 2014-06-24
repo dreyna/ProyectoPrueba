@@ -8,6 +8,7 @@ package pe.edu.upeu.prueba.vista;
 
 import java.util.ArrayList;
 import javax.swing.DefaultComboBoxModel;
+import javax.swing.JOptionPane;
 import pe.edu.upeu.prueba.DAO.DistritoDAO;
 import pe.edu.upeu.prueba.DAO.IglesiaDAO;
 import pe.edu.upeu.prueba.DAO.Tipo_IglesiaDAO;
@@ -83,6 +84,11 @@ void cargarTipoIglesia(){
         jLabel4.setText("Cuenta:");
 
         btnAgregar.setText("Agergar");
+        btnAgregar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAgregarActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -135,6 +141,22 @@ void cargarTipoIglesia(){
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarActionPerformed
+        // TODO add your handling code here:
+        if(cbodistrito.getSelectedIndex()!=0 && cbotipoiglesia.getSelectedIndex()!=0 && !txtcuenta.getText().equals("") && !txtiglesia.getText().equals("")){
+          int iddistrito = dAO.idDistrito(cbodistrito.getSelectedItem().toString());
+          int idtipoiglesia = dAO1.idTipoIglesia(cbotipoiglesia.getSelectedItem().toString());
+          String igle = txtiglesia.getText();
+          String estado = txtcuenta.getText();
+          int x = dAO2.RegistrarIglesia(iddistrito, idtipoiglesia, igle, estado);
+          if(x>0){
+              JOptionPane.showMessageDialog(null, "Exito");
+          }else{
+              JOptionPane.showMessageDialog(null, "Falla");
+          }
+        }
+    }//GEN-LAST:event_btnAgregarActionPerformed
 
     /**
      * @param args the command line arguments

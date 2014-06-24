@@ -42,4 +42,19 @@ public class DistritoDAO {
         }        
     return lista;
     }
+    public int idDistrito(String disc){
+    int id = 0;
+        sql = "select *from distrito where distrito="+disc;
+        try{
+        cx = Conexion.getConexion();
+        st = cx.createStatement();
+        rs = st.executeQuery(sql);
+        while(rs.next()){
+            id = rs.getInt("iddistrito");
+        }
+        }catch(SQLException ex){
+        
+        }
+    return id;
+    }
 }
