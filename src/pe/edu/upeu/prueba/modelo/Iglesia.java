@@ -6,6 +6,9 @@
 
 package pe.edu.upeu.prueba.modelo;
 
+import java.sql.ResultSet;
+import java.sql.SQLException;
+
 /**
  *
  * @author admin-harold.rojas
@@ -66,5 +69,13 @@ public class Iglesia {
     public void setCuenta(String cuenta) {
         this.cuenta = cuenta;
     }
-    
+    public static Iglesia loadIglesia(ResultSet rs) throws SQLException{
+    Iglesia i = new Iglesia();
+    i.setIdi(rs.getInt("idiglesia"));
+    i.setIdd(rs.getInt("iddistrito"));
+    i.setIdti(rs.getInt("idtipo_iglesia"));
+    i.setIgle(rs.getString("iglesia"));
+    i.setCuenta(rs.getString("cuenta"));
+    return i;
+    }
 }
