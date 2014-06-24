@@ -23,7 +23,7 @@ public class IglesiaDAO {
     int op;
     public int RegistrarIglesia(int idd, int idt, String igle, String est){
         try {
-            sql = "INSERT INTO iglesia VALUES(null,'"+idd+"','"+idt+"','"+igle+"','"+est+")";
+            sql = "INSERT INTO iglesia VALUES(null,'"+idd+"','"+idt+"','"+igle+"','"+est+"')";
             cx = Conexion.getConexion();
             st = cx.createStatement();
             op = st.executeUpdate(sql);
