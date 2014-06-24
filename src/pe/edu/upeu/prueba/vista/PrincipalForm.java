@@ -38,6 +38,10 @@ void cargarDistrito(){
     lista1 = dAO.listarDistrito();
     combodistrito.addElement("Seleccionar Distrito");
     cbodistrito.setModel(combodistrito);
+    for(int i=0;i<lista1.size();i++){
+        combodistrito.addElement(lista1.get(i).getDisc());
+    }
+    cbodistrito.setModel(combodistrito);
 }
 void cargarTipoIglesia(){
 }
