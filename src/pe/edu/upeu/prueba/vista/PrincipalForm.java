@@ -33,6 +33,7 @@ public final class PrincipalForm extends javax.swing.JFrame {
         initComponents();
         setLocationRelativeTo(null);
         cargarDistrito();
+        cargarTipoIglesia();
     }
 void cargarDistrito(){
     lista1 = dAO.listarDistrito();
@@ -44,6 +45,13 @@ void cargarDistrito(){
     cbodistrito.setModel(combodistrito);
 }
 void cargarTipoIglesia(){
+    lista2 = dAO1.listarTipo_Iglesia();
+    combotipoiglesia.addElement("Seleccionar Tipo Iglesia");
+    cbotipoiglesia.setModel(combodistrito);
+    for(int i=0;i<lista2.size();i++){
+        combotipoiglesia.addElement(lista2.get(i).getNom_tipo());
+    }
+    cbotipoiglesia.setModel(combotipoiglesia);
 }
     /**
      * This method is called from within the constructor to initialize the form.
