@@ -8,7 +8,6 @@ package pe.edu.upeu.prueba.modelo;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
-
 /**
  *
  * @author admin-harold.rojas
