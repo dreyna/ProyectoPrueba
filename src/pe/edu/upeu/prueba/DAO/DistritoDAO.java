@@ -44,7 +44,7 @@ public class DistritoDAO {
     }
     public int idDistrito(String disc){
     int id = 0;
-        sql = "select *from distrito where distrito="+disc;
+        sql = "select *from distrito where distrito='"+disc+"'";
         try{
         cx = Conexion.getConexion();
         st = cx.createStatement();

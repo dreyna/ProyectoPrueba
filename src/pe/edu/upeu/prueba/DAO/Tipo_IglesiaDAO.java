@@ -41,7 +41,7 @@ public class Tipo_IglesiaDAO {
     }
      public int idTipoIglesia(String tipo_i){
     int id = 0;
-        sql = "select *from tipo_iglesia where tipo_iglesia="+tipo_i;
+        sql = "select *from tipo_iglesia where tipo_iglesia='"+tipo_i+"'";
         try{
         cx = Conexion.getConexion();
         st = cx.createStatement();
