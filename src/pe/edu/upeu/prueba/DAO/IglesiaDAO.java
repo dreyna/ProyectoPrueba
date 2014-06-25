@@ -21,7 +21,7 @@ public class IglesiaDAO {
     private Connection cx;
     private ResultSet rs;
     int op;
-    public int RegistrarIglesia(int idd, int idt, String igle, String est){
+    public int RegistrarIglesia(int idd, int idt, String igle, int est){
         try {
             sql = "INSERT INTO iglesia VALUES(null,'"+idd+"','"+idt+"','"+igle+"','"+est+"')";
             cx = Conexion.getConexion();
