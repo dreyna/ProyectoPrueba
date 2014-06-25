@@ -72,6 +72,7 @@ void cargarTipoIglesia(){
         jLabel4 = new javax.swing.JLabel();
         txtcuenta = new javax.swing.JTextField();
         btnAgregar = new javax.swing.JButton();
+        jLabel5 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -89,6 +90,8 @@ void cargarTipoIglesia(){
                 btnAgregarActionPerformed(evt);
             }
         });
+
+        jLabel5.setText("Fecha:");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -112,7 +115,8 @@ void cargarTipoIglesia(){
                                 .addComponent(cbodistrito, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(cbotipoiglesia, 0, 185, Short.MAX_VALUE)
                                 .addComponent(txtcuenta, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(txtiglesia, javax.swing.GroupLayout.PREFERRED_SIZE, 364, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addComponent(txtiglesia, javax.swing.GroupLayout.PREFERRED_SIZE, 364, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel5))))
                 .addContainerGap(31, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -136,7 +140,9 @@ void cargarTipoIglesia(){
                     .addComponent(txtcuenta, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(btnAgregar, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(45, Short.MAX_VALUE))
+                .addGap(103, 103, 103)
+                .addComponent(jLabel5)
+                .addContainerGap(232, Short.MAX_VALUE))
         );
 
         pack();
@@ -203,6 +209,7 @@ void cargarTipoIglesia(){
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
     private javax.swing.JTextField txtcuenta;
     private javax.swing.JTextField txtiglesia;
     // End of variables declaration//GEN-END:variables
