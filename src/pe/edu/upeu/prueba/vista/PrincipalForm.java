@@ -38,6 +38,10 @@ public final class PrincipalForm extends javax.swing.JFrame {
         cargarDistrito();
         cargarTipoIglesia();
     }
+    void autocompletar(){
+    TextAutoCompletar textAutoCompletar = new TextAutoCompletar();
+    
+    }
 void cargarDistrito(){
     lista1 = dAO.listarDistrito();
     combodistrito.addElement("Seleccionar Distrito");
@@ -79,6 +83,8 @@ void cargarTipoIglesia(){
         jLabel6 = new javax.swing.JLabel();
         dtfecha2 = new com.toedter.calendar.JDateChooser();
         btngenerarreporte = new javax.swing.JButton();
+        jLabel7 = new javax.swing.JLabel();
+        jTextField1 = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -107,6 +113,8 @@ void cargarTipoIglesia(){
                 btngenerarreporteActionPerformed(evt);
             }
         });
+
+        jLabel7.setText("Persona:");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -142,7 +150,11 @@ void cargarTipoIglesia(){
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(btnAgregar, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(btngenerarreporte, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(31, Short.MAX_VALUE))
+                .addGap(58, 58, 58)
+                .addComponent(jLabel7)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 203, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(60, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -158,7 +170,9 @@ void cargarTipoIglesia(){
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
-                    .addComponent(txtiglesia, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtiglesia, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel7)
+                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(13, 13, 13)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
@@ -205,11 +219,13 @@ void cargarTipoIglesia(){
 
     private void btngenerarreporteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btngenerarreporteActionPerformed
         // TODO add your handling code here:
-        Date date1 = (Date) dtfecha1.getDate();
-        Date date2 = (Date) dtfecha2.getDate();
+        java.util.Date date1 = dtfecha1.getDate();
+        java.util.Date date2 = dtfecha2.getDate();
         SimpleDateFormat sdf1 = new SimpleDateFormat("yyyy-MM-dd");
         String fecha1 = sdf1.format(date1);
-        JOptionPane.showMessageDialog(null, fecha1);
+        String fecha2 = sdf1.format(date2);
+        
+        
     }//GEN-LAST:event_btngenerarreporteActionPerformed
 
     /**
@@ -260,6 +276,8 @@ void cargarTipoIglesia(){
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField txtcuenta;
     private javax.swing.JTextField txtiglesia;
     // End of variables declaration//GEN-END:variables
