@@ -151,7 +151,7 @@ void cargarTipoIglesia(){
           int estado = Integer.parseInt(txtcuenta.getText());
           //JOptionPane.showMessageDialog(null, iddistrito +","+idtipoiglesia +","+igle+","+estado);
           int x = dAO2.RegistrarIglesia(iddistrito, idtipoiglesia, igle, estado);
-          JOptionPane.showMessageDialog(null, estado);
+          //JOptionPane.showMessageDialog(null, estado);
           if(x!=0){
               JOptionPane.showMessageDialog(null, "Exito");
           }else{

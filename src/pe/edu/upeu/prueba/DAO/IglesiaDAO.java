@@ -6,9 +6,12 @@
 
 package pe.edu.upeu.prueba.DAO;
 
+import java.awt.HeadlessException;
 import java.sql.Connection;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.sql.Statement;
+import javax.swing.JOptionPane;
 import pe.edu.upeu.prueba.config.Conexion;
 
 /**
@@ -23,12 +26,31 @@ public class IglesiaDAO {
     int op;
     public int RegistrarIglesia(int idd, int idt, String igle, int est){
         try {
-            sql ="INSERT INTO Iglesia VALUES(null,'"+idd+"','"+idt+"','"+igle+"','"+est+"')";
+            int y = MaxId() + 1;
+            JOptionPane.showMessageDialog(null, y);
+            sql ="INSERT INTO Iglesia VALUES('"+y+"','"+idd+"','"+idt+"','"+igle+"','"+est+"')";
             cx = Conexion.getConexion();
             st = cx.createStatement();
             op = st.executeUpdate(sql);
-        } catch (Exception e) {
+        } catch (HeadlessException | SQLException e) {
+            JOptionPane.showMessageDialog(null, "al guaradar: "+e);
         }   
     return op;
+    }
+    public int MaxId(){
+        int k = 0;
+     try {
+            sql ="SELECT MAX(idiglesia) as idmax FROM iglesia";
+            cx = Conexion.getConexion();
+            st = cx.createStatement();
+            rs = st.executeQuery(sql);
+            while(rs.next()){
+            k = rs.getInt("idmax");
+            }
+        } catch (HeadlessException | SQLException e) {
+            JOptionPane.showMessageDialog(null, "jonas: "+e);
+        }   
+    return k;
+    
     }
 }
