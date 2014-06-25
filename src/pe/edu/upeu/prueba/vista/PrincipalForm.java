@@ -151,7 +151,8 @@ void cargarTipoIglesia(){
           String igle = txtiglesia.getText();
           int estado = Integer.parseInt(txtcuenta.getText());
           int x = dAO2.RegistrarIglesia(iddistrito, idtipoiglesia, igle, estado);
-          if(x>0){
+          JOptionPane.showMessageDialog(null, estado);
+          if(x!=0){
               JOptionPane.showMessageDialog(null, "Exito");
           }else{
               JOptionPane.showMessageDialog(null, "Falla");
