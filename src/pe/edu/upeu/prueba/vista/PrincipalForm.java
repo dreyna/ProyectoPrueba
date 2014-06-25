@@ -147,9 +147,9 @@ void cargarTipoIglesia(){
         if(cbodistrito.getSelectedIndex()!=0 && cbotipoiglesia.getSelectedIndex()!=0 && !txtcuenta.getText().equals("") && !txtiglesia.getText().equals("")){
           int iddistrito = dAO.idDistrito(cbodistrito.getSelectedItem().toString());
           int idtipoiglesia = dAO1.idTipoIglesia(cbotipoiglesia.getSelectedItem().toString());
-          //JOptionPane.showMessageDialog(null, iddistrito +","+ idtipoiglesia);
           String igle = txtiglesia.getText();
           int estado = Integer.parseInt(txtcuenta.getText());
+          //JOptionPane.showMessageDialog(null, iddistrito +","+idtipoiglesia +","+igle+","+estado);
           int x = dAO2.RegistrarIglesia(iddistrito, idtipoiglesia, igle, estado);
           JOptionPane.showMessageDialog(null, estado);
           if(x!=0){

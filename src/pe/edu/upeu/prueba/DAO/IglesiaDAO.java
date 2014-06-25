@@ -20,11 +20,10 @@ public class IglesiaDAO {
     private Statement st;
     private Connection cx;
     private ResultSet rs;
-    int op=0;
+    int op;
     public int RegistrarIglesia(int idd, int idt, String igle, int est){
         try {
-            sql = "INSERT INTO Iglesia VALUES(null,'"+idd+"','"+idt+"','"+igle+"','"+est+"')";
-            
+            sql ="INSERT INTO Iglesia VALUES(null,'"+idd+"','"+idt+"','"+igle+"','"+est+"')";
             cx = Conexion.getConexion();
             st = cx.createStatement();
             op = st.executeUpdate(sql);
