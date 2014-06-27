@@ -6,13 +6,24 @@
 
 package pe.edu.upeu.prueba.vista;
 
+import java.sql.Connection;
 import java.sql.Date;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 import javax.swing.DefaultComboBoxModel;
+import javax.swing.JOptionPane;
+import net.sf.jasperreports.engine.JRException;
+import net.sf.jasperreports.engine.JasperFillManager;
+import net.sf.jasperreports.engine.JasperPrint;
+import net.sf.jasperreports.engine.JasperReport;
+import net.sf.jasperreports.engine.util.JRLoader;
+import net.sf.jasperreports.view.JasperViewer;
 import pe.edu.upeu.prueba.DAO.DistritoDAO;
 import pe.edu.upeu.prueba.DAO.IglesiaDAO;
 import pe.edu.upeu.prueba.DAO.Tipo_IglesiaDAO;
+import pe.edu.upeu.prueba.config.Conexion;
 import pe.edu.upeu.prueba.modelo.Distrito;
 import pe.edu.upeu.prueba.modelo.Tipo_Iglesia;
 
@@ -28,6 +39,7 @@ public final class PrincipalForm extends javax.swing.JFrame {
     IglesiaDAO dAO2 = new IglesiaDAO();
     ArrayList<Distrito> lista1 = new ArrayList();
     ArrayList<Tipo_Iglesia> lista2 = new ArrayList();
+    Connection conex;
     /**
      * Creates new form PrincipalForm
      */
@@ -140,8 +152,19 @@ public final class PrincipalForm extends javax.swing.JFrame {
         SimpleDateFormat sdf1 = new SimpleDateFormat("yyyy-MM-dd");
         String fecha1 = sdf1.format(date1);
         String fecha2 = sdf1.format(date2);
-        
-        
+        JasperReport jasperReport = null;
+        conex = Conexion.getConexion();
+        Map parametro = new HashMap();
+        parametro.put("fec01", fecha1);
+        parametro.put("fec02", fecha2);
+        try{
+            jasperReport = (JasperReport) JRLoader.loadObject(getClass().getResource("/reportes/report2.jasper"));
+            JasperPrint jasperPrint = JasperFillManager.fillReport(jasperReport, parametro, conex);
+            JasperViewer jasperViewer = new JasperViewer(jasperPrint,false);
+            jasperViewer.setVisible(true);            
+        }catch(JRException ex){
+            JOptionPane.showMessageDialog(null, "JasperReport:"+ex);
+        }       
     }//GEN-LAST:event_btngenerarreporteActionPerformed
 
     /**
