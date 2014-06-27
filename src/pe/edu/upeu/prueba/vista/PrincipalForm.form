@@ -95,7 +95,6 @@
                   <Group type="103" groupAlignment="1" attributes="0">
                       <Component id="btngenerarreporte" alignment="1" min="-2" pref="52" max="-2" attributes="0"/>
                       <Group type="102" alignment="1" attributes="0">
-                          <EmptySpace min="-2" pref="6" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="2" attributes="0">
                               <Component id="jLabel5" alignment="2" min="-2" max="-2" attributes="0"/>
                               <Component id="dtfecha1" alignment="2" min="-2" max="-2" attributes="0"/>
